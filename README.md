@@ -59,5 +59,38 @@ Tsitsiklis (1994) 는 Q-learning의 asychronous 최적화 환경에서 convergen
 ![image](https://user-images.githubusercontent.com/40893452/45093595-d04e6280-b153-11e8-8030-2ddf6c7c0286.png)는 total accumulated return with discounted factor입니다.  
 그러므로, 강화학습의 목표는 각각의 state s(t)에서부터 기대되는 리턴 (expected return) 을 최대화 시키는 정책을 학습하는 것입니다.  
 
-action-value ![image](https://user-images.githubusercontent.com/40893452/45093790-8154fd00-b154-11e8-952a-647cd4f58d96.png)
+action-value ![image](https://user-images.githubusercontent.com/40893452/45093790-8154fd00-b154-11e8-952a-647cd4f58d96.png) 은 state s에서 action a를 선택했을 때 기대되는 리턴 (expected return)을 의미합니다.   
+optimal value function 어떤 policy를 따를 때 state s 에서 최대의 return을 주는 action a를 반환 해주는 함수를 의미하며 다음과 같이 표현 됩니다. 
+![image](https://user-images.githubusercontent.com/40893452/45093884-c7aa5c00-b154-11e8-895e-f2f06ff41def.png)![image](https://user-images.githubusercontent.com/40893452/45093900-d42eb480-b154-11e8-945d-c4d03ef6a1f5.png)  
+유사하게, 임의의 policy 아래에서 state s일 때의 value의 가치는 다음과 같이 표현 됩니다.  
+![image](https://user-images.githubusercontent.com/40893452/45093963-fb858180-b154-11e8-8608-aa16ba54296b.png)![image](https://user-images.githubusercontent.com/40893452/45093981-06401680-b155-11e8-9fd9-4135530b3da7.png)  
+이는 state s에서 policy를 따랐을떄 따라오게 되는 expected return을 의미합니다.  
+
+value-based model-free reinforcement learning 방법에서, action-value function은 neural network와 같은 function approximator를 활용해서 표현됩니다.   
+![image](https://user-images.githubusercontent.com/40893452/45094124-5a4afb00-b155-11e8-8491-9a9b4e698e62.png)는 parameter ![image](https://user-images.githubusercontent.com/40893452/45094143-6931ad80-b155-11e8-9547-39b5683c36d8.png)를 통해서 근사되는 action-value function을 의미합니다.  
+![image](https://user-images.githubusercontent.com/40893452/45094143-6931ad80-b155-11e8-9547-39b5683c36d8.png)를 update하는 방법은 다양한 알고리즘들이 존재합니다.  
+하나의 예로 DQN 이 존재합니다.  
+DQN 에서는 1 step 마다 ![image](https://user-images.githubusercontent.com/40893452/45094143-6931ad80-b155-11e8-9547-39b5683c36d8.png) 로 근사되는 action-value function을 학습합니다.  
+이때, neural network로 근사되므로 다음과 같은 loss function을 사용하여 loss를 minimization하는 방향으로 학습이 진행됩니다.  
+![image](https://user-images.githubusercontent.com/40893452/45094549-9fbbf800-b156-11e8-9cdb-3242b8b69555.png)  
+1 step Q-learning은 action value function을 one step return r(t) + (discounted factor) * max_(a){Q(s(t+1), a)} 을 사용하여 업데이트 합니다.  
+이 방법의 단점은 reward r을 얻는것이  s(t)와 a(t)의 state-action pair에 직접적으로만 영향을 미친다는 것입니다.  
+Q(s, a)의 업데이트를 통해서 s(t)와 a(t)와는 다른 state와 action pair들은 직접적으로 영향을 받지 않습니다.  
+이것은 learning process에서 state와 action을 경험하고 학습하는 과정에서 속도를 느리게 만듭니다.  
+
+이 문제를 해결하기 위한 하나의 방법으로, n-step return (Watkins, 1989, Peng & williams, 1996)에서 제안된 방법이 있습니다.  
+n-step Q-learning은 Q(s, a)를 업데이트 하는 과정에서, n개의 앞선 state와 action pair까지 하나의 reward r(t)가 영향을 미치게 합니다.  
+그 식은 아래와 같습니다.  
+![image](https://user-images.githubusercontent.com/40893452/45094944-c0388200-b157-11e8-8484-89c7b8dee029.png)![image](https://user-images.githubusercontent.com/40893452/45094966-c9c1ea00-b157-11e8-9e67-8bc8b1106743.png)  
+이 수식을 통해서, rewrard의 propagation 과정이 더 효율적으로 이루어져서 학습이 빨라지게 됩니다.  
+
+
+
+
+
+
+
+
+
+
 

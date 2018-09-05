@@ -50,3 +50,14 @@ Tsitsiklis (1994) 는 Q-learning의 asychronous 최적화 환경에서 convergen
 만약 오래된 (outdated) 데이터가 버려지고 몇가지 추가적인 기술적인 가정이 만족된다면 Q-learning이 여전히 convergence가 보장된다는 것을 보였습니다.  
 
 ## [Reinforcement Learning Background]
+이 논문에서는 일반적인 강화학습 환경을 고려합니다.  
+(1) agent 는 환경 ![image](https://user-images.githubusercontent.com/40893452/45093490-7c437e00-b153-11e8-8149-1e7cb7c81b9c.png) 와 상호작용 합니다.  
+(2) discrete time step t 에서 agent는 상호작용합니다.  
+(3) agent는 t time step일 때, s(t) 의 state를 받고 가지고 있는 policy 에 따라서 action a(t)를 선택합니다.  
+(4) environment는 a(t)에 따라서 estate s(t+1)을 받고 scalar reward r(t)를 돌려 줍니다.  
+위의 과정은 agent가 terminal state에 도달할 때까지 반복합니다.  
+![image](https://user-images.githubusercontent.com/40893452/45093595-d04e6280-b153-11e8-8030-2ddf6c7c0286.png)는 total accumulated return with discounted factor입니다.  
+그러므로, 강화학습의 목표는 각각의 state s(t)에서부터 기대되는 리턴 (expected return) 을 최대화 시키는 정책을 학습하는 것입니다.  
+
+action-value ![image](https://user-images.githubusercontent.com/40893452/45093790-8154fd00-b154-11e8-952a-647cd4f58d96.png)
+

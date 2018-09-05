@@ -105,6 +105,9 @@ b(t) 를 ![image](https://user-images.githubusercontent.com/40893452/45096396-6f
 이러한 mulit-threaded asynchronous 변형 알고리즘을 제안하는 목적은 policies들의 deep neural network를 통한 안정적인 학습 방법과 larger resource requirement를 줄일 수 있는 방법을 제안하기 위해서 입니다.   
 기본적인 RL 알고리즘들과는 다르지만, actor-critic 이 on-policy policy search 알고리즘이 되는것과 Q-learninig이 off-policy value-based method가 되는것과 함꼐 2가지 메인 아이디어를 활용해서 4가지 위에서 언급한 알고리즘들이 실용적이 되도록 합니다.  
 
+1. 이 논문에서는 aasynchronous actor-learner들을 사용합니다. 이는 Gorila framework에서와 유사하지만, 다른 machine과 server를 사용하는 대신에 multiple CPU  thread를 single machine에서 사용합니다.  그리고 이 방법은 gradients와 parameter를 server를 통해 공유하는 cost를 줄여주며, Hogwild! (Recht et al., 2011) 스타일의 업데이트를 training 과정에서 가능하도록 만들어 줍니다.  
+
+2. 
 
 
 

@@ -84,6 +84,27 @@ n-step Q-learning은 Q(s, a)를 업데이트 하는 과정에서, n개의 앞선
 ![image](https://user-images.githubusercontent.com/40893452/45094944-c0388200-b157-11e8-8484-89c7b8dee029.png)![image](https://user-images.githubusercontent.com/40893452/45094966-c9c1ea00-b157-11e8-9e67-8bc8b1106743.png)  
 이 수식을 통해서, rewrard의 propagation 과정이 더 효율적으로 이루어져서 학습이 빨라지게 됩니다.  
 
+value-based method 와 달리, policy-based model-free mothod는 직접적으로 policy ![image](https://user-images.githubusercontent.com/40893452/45095992-6e452b80-b15a-11e8-8262-f5cc98303374.png)
+의 parameter를 학습합니다.   
+이때, gradient ascent 방법을 따르며, expected return ![image](https://user-images.githubusercontent.com/40893452/45096150-d72ca380-b15a-11e8-95b2-c8529d81d55c.png)에 대한 gradient를 사용합니다.  
+
+하나의 예로, REINFORCE 알고리즘이 있습니다.  
+이 알고리즘은 policy parameter를 업데이트 할 때, ![image](https://user-images.githubusercontent.com/40893452/45096150-d72ca380-b15a-11e8-95b2-c8529d81d55c.png)의 미분 값인 ![image](https://user-images.githubusercontent.com/40893452/45096219-ffb49d80-b15a-11e8-8f74-2fa86edd58d0.png)의 방향으로 학습을 진행합니다.  
+> 이때 학습 과정에서 생겨나는 bias는 value function at state s(t)를 R(t) 에서 빼는 것으로 없애게 됩니다. 자세한 내용은 논문을 참조해 주세요.  
+즉, 최종적인 학습 과정에서의 gradient는 다음과 같습니다.  
+![image](https://user-images.githubusercontent.com/40893452/45096326-3b4f6780-b15b-11e8-90a8-dd27329c52a3.png)   
+
+b(t) 를 ![image](https://user-images.githubusercontent.com/40893452/45096396-6f2a8d00-b15b-11e8-8025-8d94d07a1b2c.png)과 같이 근사된 value function으로 대체하는 것을 통해서 "policy gradient"의 variance가 더 낮아지게 됩니다.  
+![image](https://user-images.githubusercontent.com/40893452/45096458-91bca600-b15b-11e8-95e4-23c3c173620f.png) 가 baseline (i.e., b(t))로 사용되는 것으로 R(t) - b(t) 의 크기 (quantity)는 policy gradient의 크기를 변화시킵니다.  
+그리고 이것은 state s(t)에서의 action a(t)의 advatage의 추정으로써 보여집니다.  
+> R(t) 는 Q(s(t), a(t)) 의 추정치이며, b(t) 는 V(s(t))의 추정치 이기 때문에, s(t)의 expected return과 s(t)에서의 a(t)의 expected return 과의 차이를 advantage of action a(t) in state  s(t)라고 표현하는 것 같습니다.  
+이 접근법은 actor-critic 구조로써 보여질 수 있습니다.  
+
+## [Asynchronous RL framework]
+
+
+
+
 
 
 

@@ -101,6 +101,10 @@ b(t) 를 ![image](https://user-images.githubusercontent.com/40893452/45096396-6f
 이 접근법은 actor-critic 구조로써 보여질 수 있습니다.  
 
 ## [Asynchronous RL framework]
+이 논문에서는 one-step Sarsa, one-step Q-laearning, n-step Q-learning 과 advantage actor-critic의 변형된 알고리즘을 제안합니다.  
+이러한 mulit-threaded asynchronous 변형 알고리즘을 제안하는 목적은 policies들의 deep neural network를 통한 안정적인 학습 방법과 larger resource requirement를 줄일 수 있는 방법을 제안하기 위해서 입니다.   
+기본적인 RL 알고리즘들과는 다르지만, actor-critic 이 on-policy policy search 알고리즘이 되는것과 Q-learninig이 off-policy value-based method가 되는것과 함꼐 2가지 메인 아이디어를 활용해서 4가지 위에서 언급한 알고리즘들이 실용적이 되도록 합니다.  
+
 
 
 

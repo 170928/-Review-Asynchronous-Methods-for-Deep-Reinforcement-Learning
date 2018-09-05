@@ -26,3 +26,27 @@ multiple agents들을 parallel 하게 독립된 multiple instance environment에
 이 parallelism은 agent들의 데이터를 decorrelate 시킵니다.  
 각각의 agent 들이 주어진 time-step에서 다른 state에 존재하며 다른 경험을 하기 때문입니다.  
 이 간단한 idea는 "on-policy" 뿐만 아니라 "off-policy" RL algorithm이 더 많은 영역에서 작동할 수 있도록 해 줍니다.  
+
+asynchronous advantage actor-critic (A3C)는 제안한 method 들 중 가장 뛰어난 성능을 보이며 continous motor 와 같은 continuous action space 환경 뿐 아니라 deterministic action space 환경에서도 모두 뛰어난 성능을 보여줍니다.  
+
+## [Related Work]
+General Reinforcement Learning Architecture (Gorila : Nair et al., 2015) 는 distributed setting에서 강화학습 agent들의 asynchronous training 을 수행합니다.  
+Gorila에서, 각각의 agent들은 각자의 environment를 가지고, 독립적인 replay memory를 가집니다. 뿐만 아니라 이 memory로 부터 random sampling한 데이터를 활용하여 DQN loss를 사용해서 poilicy를 학습 합니다.  
+이렇게 독립적으로 계산된 DQN loss의 DQN parameter로 미분된 gradient들은 "central parameter server"에 전달됩니다.  
+server는 model의 central copy를 update 합니다.  
+update된 policy parameter들은 fixed interval을 가지고 actor-learners (agents들) 에게 전달됩니다.  
+
+> 정확한 방법은 해당 논문을 참조하는 것이 좋을 것 같습니다. 추후에 포스팅 할 생각입니다.
+
+Li & Schuurmans (2011) 의 연구에서는 Map Reduce framework 를 linear function approximation을 통한 batch reinforcement learning algorithm을 parallel하게 학습합니다.  
+Praralleism은 large matrix operation을 빠르게 하기 위해서 사용되지만, agent의 experience의 수집을 parallel하게 만들지는 않습니다.  
+
+Grounds & Kudenko (2008) 은 Sarsa algorithm의 parallel version을 제안했습니다.  
+이 알고리즘은 multiple actor-learners를 활용하여 training 과정을 가속화 시킵니다.  
+각각의 actor는 독립적으로 학습을 수행하고 주기적으로 학습된 weight를 전달합니다.  
+이때, peer-to-peer communication을 사용하여 학습된 weight를 전달하며, 중요한 학습이 이루어진 가중치가 퍼지게 됩니다.  
+
+Tsitsiklis (1994) 는 Q-learning의 asychronous 최적화 환경에서 convergence 특징에 대해서 연구를 하였습니다.  
+만약 오래된 (outdated) 데이터가 버려지고 몇가지 추가적인 기술적인 가정이 만족된다면 Q-learning이 여전히 convergence가 보장된다는 것을 보였습니다.  
+
+## [Reinforcement Learning Background]

@@ -1,6 +1,6 @@
 # -Review-Asynchronous-Methods-for-Deep-Reinforcement-Learning
-# DeepMind, MILA
-논문 리뷰 및 구현 코드 와 코드별 해석 정리
+>DeepMind, MILA
+>논문 리뷰 및 구현 코드 와 코드별 해석 정리
 
 ## [Abstract]
 개념적으로 단순하고 가벼운 프레임 워크를 제안하는 논문입니다.  

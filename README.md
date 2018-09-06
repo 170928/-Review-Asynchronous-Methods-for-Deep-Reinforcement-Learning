@@ -107,7 +107,17 @@ b(t) 를 ![image](https://user-images.githubusercontent.com/40893452/45096396-6f
 
 1. 이 논문에서는 aasynchronous actor-learner들을 사용합니다. 이는 Gorila framework에서와 유사하지만, 다른 machine과 server를 사용하는 대신에 multiple CPU  thread를 single machine에서 사용합니다.  그리고 이 방법은 gradients와 parameter를 server를 통해 공유하는 cost를 줄여주며, Hogwild! (Recht et al., 2011) 스타일의 업데이트를 training 과정에서 가능하도록 만들어 줍니다.  
 
-2. 
+2. Multiple actor-learners가 parallel 하게 학습을 수행하는 과정에서 다른 environment를 탐색하게 됩니다.  
+그 결과 각각의 actor-learner들은 다른 policy를 가지고 탐색을 수행하게 됩니다.  
+다른 thread에서 다른 탐색 정책을 가지고 작동하는 것에 의해서, 전체적인 변화는 online update방식의 parameter 업데이트가 single agent의 online update에 비해서 less correlated 하게 됩니다.  
+그러므로, replay memory를 사용하지 않고, parallel actor들의 다른 탐색 정책을 가진 actor 들을 이용하여 데이터의 학습과정에서의 correlation을 줄입니다.  
+
+experience memory가 아닌 multiple parallel actor-learners를 사용하여 학습하는 것에는 몇가지 이점이 있습니다.   
+1. parallel actor-learner의 수에서 linear하게 training time이 감소합니다.  
+2. experience replay 에 의존하지 않게되어, on-policy reinforcement learning method를 사용할 수 있게 됩니다. (ex) SARSA , actor-critic  
+
+## [Asynchronous one-step Q-laerning]
+
 
 
 

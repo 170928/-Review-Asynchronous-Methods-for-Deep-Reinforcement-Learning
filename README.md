@@ -117,6 +117,8 @@ experience memory가 아닌 multiple parallel actor-learners를 사용하여 학
 2. experience replay 에 의존하지 않게되어, on-policy reinforcement learning method를 사용할 수 있게 됩니다. (ex) SARSA , actor-critic  
 
 ## [Asynchronous one-step Q-laerning]
+![image](https://user-images.githubusercontent.com/40893452/45151193-9be8ae00-b208-11e8-9f65-7b9717e7fbcf.png)  
+위의 알고리즘은 이 논문에서 제시하는 asynchronous one-step Q-learning 의 수도코드 입니다.  
 
 
 

@@ -120,6 +120,12 @@ experience memory가 아닌 multiple parallel actor-learners를 사용하여 학
 ![image](https://user-images.githubusercontent.com/40893452/45151193-9be8ae00-b208-11e8-9f65-7b9717e7fbcf.png)  
 위의 알고리즘은 이 논문에서 제시하는 asynchronous one-step Q-learning 의 수도코드 입니다.  
 
+## [Asynchronous one-step Saras]
+asynchronous one-step Sarsa 알고리즘은 asynchronous one-step Q-learning과 Algorithm1과 다른 target value Q(s,a)를 사용한다는 것 빼고 모두 동일합니다.  
+one-step Sarsa 에서 사용되는 target value는 r + (discount_factor) * Q( s(t+1) , a(t+1) ; targetNet_paramter ) 입니다.  
+target network 가 사용되며 학습을 안정화 시키기 위해서 일정 time step을 주기로 target network를 업데이트 합니다.  
+
+## [Asynchronous n-step Q-learning]
 
 
 

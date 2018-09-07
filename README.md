@@ -133,7 +133,9 @@ multiple step Q-learning을 다음과 같습니다.
 한번의 업데이트를 위해서, 알고리즘은 policy를 기반으로 action을 고리며 최대 t(max) step까지 미리 action을 고릅니다. ( 또는 state가 끝날 때 까지 ).  
 이 과정은 agent t(max) 까지의 rewards 를 한번에 마지막으로 update 했던 state에 대한 update 부터 받아옵니다.  
 
-## [Asynchronous advantage actor-critic] 
+## [Asynchronous advantage actor-critic]
+Asynchronous advantage actor-critic (A3C) 알고리즘은 policy 와 value function 모두를 가지고 있습니다.  
+위의 논문에서 제시한 것처럼 n-step Q-learning 알고리즘처럼 forward view를 사용해서 policy 와 value function을 업데이트 합니다.  
 
 
 

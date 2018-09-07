@@ -126,6 +126,15 @@ one-step Sarsa 에서 사용되는 target value는 r + (discount_factor) * Q( s(
 target network 가 사용되며 학습을 안정화 시키기 위해서 일정 time step을 주기로 target network를 업데이트 합니다.  
 
 ## [Asynchronous n-step Q-learning]
+multiple step Q-learning을 다음과 같습니다.   
+![image](https://user-images.githubusercontent.com/40893452/45205494-46220d80-b2bd-11e8-8445-76374c9a5830.png)  
+이 알고리즘은 forward view ( n step 앞의 결과 )를 본다는 점에서 일반적이지 않습니다.  
+이런 forward view를 사용하는 것은 neural network를 학습하는 과정에서 monetum based methods 와 backpropagation 과정에서 훨씬 더 효과적인 학습이 가능하도록 해 줍니다.  
+한번의 업데이트를 위해서, 알고리즘은 policy를 기반으로 action을 고리며 최대 t(max) step까지 미리 action을 고릅니다. ( 또는 state가 끝날 때 까지 ).  
+이 과정은 agent t(max) 까지의 rewards 를 한번에 마지막으로 update 했던 state에 대한 update 부터 받아옵니다.  
+
+## [Asynchronous advantage actor-critic] 
+
 
 
 

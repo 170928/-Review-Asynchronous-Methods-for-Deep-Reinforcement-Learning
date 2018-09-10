@@ -152,6 +152,11 @@ policy 매개 변수와 관련하여 "엔트로피 정규화"를 포함하는 �
 ![image](https://user-images.githubusercontent.com/40893452/45300917-982b9300-b54a-11e8-8422-ad89709e1d88.png)  
 
 ## [Optimization]
+이 논문에서는 the standard non-centered RMSProp update 를 사용합니다.   
+![image](https://user-images.githubusercontent.com/40893452/45300990-d759e400-b54a-11e8-812e-354af1785910.png)  
+
+## [Experiments]
+
 
 
 

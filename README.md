@@ -136,6 +136,24 @@ multiple step Q-learning을 다음과 같습니다.
 ## [Asynchronous advantage actor-critic]
 Asynchronous advantage actor-critic (A3C) 알고리즘은 policy 와 value function 모두를 가지고 있습니다.  
 위의 논문에서 제시한 것처럼 n-step Q-learning 알고리즘처럼 forward view를 사용해서 policy 와 value function을 업데이트 합니다.  
+policy와 value function 들은 모두 t(max) or terminal setate에 도착한 후에 업데이트 됩니다.  
+![image](https://user-images.githubusercontent.com/40893452/45300004-3407cf80-b548-11e8-847a-70cfd5fb3e6e.png)  
+k 값은 upper-bounded "t(max)" 의 내에서 달라질 수 있다.  
+
+policy의 매개 변수 θ와 value-function의 θv가 분리되어있는 것처럼 보여 지지만 실제로 우리는 실제로 일부 매개 변수를 공유합니다.   
+policy는 π (at | st; θ)에 대해 하나의 softmax 출력을 가지는 convolutional neural netowrk를 사용합니다.  
+value-function V(st; θv)에 대해 하나의 선형 출력을 가집니다.  
+이때, 모든 non-output layer들의 가중치는 공유됩니다.  
+
+정책 π의 엔트로피를 loss function에 더하면 suboptimal 로의 premature (조기,이른) convergence (수렴)을 방지하여 exploration을 개선한다는 것을 발견했다.  
+> This technique was originally proposed by (Williams & Peng, 1991)  
+
+policy 매개 변수와 관련하여 "엔트로피 정규화"를 포함하는 완전한 loss function의 gradient가 다음과 같은 형태를 취합니다.  
+![image](https://user-images.githubusercontent.com/40893452/45300917-982b9300-b54a-11e8-8422-ad89709e1d88.png)  
+
+## [Optimization]
+
+
 
 
 

@@ -3,7 +3,7 @@ import scipy.signal
 import tensorflow as tf
 from collections import namedtuple
 
-from .base import BaseAgent
+from .unused_base import BaseAgent
 
 Batch = namedtuple("Batch", ["state", "action", "advantage", "reward", "terminal", "features"])
 

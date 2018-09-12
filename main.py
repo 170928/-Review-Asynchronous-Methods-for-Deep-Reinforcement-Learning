@@ -1,3 +1,10 @@
+# 참조 코드
+# 김태훈 님의 코드를 참조하였습니다.
+# https://github.com/carpedm20/a3c-tensorflow/
+# 감사합니다.
+
+
+
 import argparse
 
 parser = argparse.ArgumentParser(description="Argument Setting")

@@ -1,8 +1,16 @@
+<<<<<<< Updated upstream
 # 참조 코드
 # 김태훈 님의 코드를 참조하였습니다.
 # https://github.com/carpedm20/a3c-tensorflow/
 # 감사합니다.
 
+=======
+# Reference Codes
+# https://github.com/hongzimao/a3c
+# https://github.com/hiwonjoon/tf-a3c-gpu
+# https://github.com/carpedm20/a3c-tensorflow
+# Thank you.
+>>>>>>> Stashed changes
 
 
 import argparse

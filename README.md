@@ -2,6 +2,13 @@
 >DeepMind, MILA
 >논문 리뷰 및 구현 코드 와 코드별 해석 정리
 
+## [Training Result]
+> 구현된 코드를 활용한 학습 결과입니다.
+> 32번 episode 학습 후의 모습
+
+![training_ep32](https://user-images.githubusercontent.com/40893452/45482966-6f91dc00-b78a-11e8-9fc8-053d63496fc1.gif)
+
+
 ## [Abstract]
 개념적으로 단순하고 가벼운 프레임 워크를 제안하는 논문입니다.  
 deep neural network controller의 optimization을 위한 asynchronous gradient descent 를 사용합니다.  

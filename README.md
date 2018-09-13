@@ -2,9 +2,14 @@
 >DeepMind, MILA
 >논문 리뷰 및 구현 코드 와 코드별 해석 정리
 
+> keras_to_tf.py는 "이웅원" 씨의 "파이썬과 케라스로 배우는 강화학습" 책의 A3C keras 코드를 tensorflow code로 변경한 것입니다.
+
+> 아래의 트레이닝 결과는 main.py 의 결과입니다.
+
 ## [Training Result]
 > 구현된 코드를 활용한 학습 결과입니다.
 > 32번 episode 학습 후의 모습
+> main.py
 
 ![training_ep32](https://user-images.githubusercontent.com/40893452/45482966-6f91dc00-b78a-11e8-9fc8-053d63496fc1.gif)
 

@@ -1,6 +1,6 @@
 # -Review-Asynchronous-Methods-for-Deep-Reinforcement-Learning
 >DeepMind, MILA
->논문 리뷰 및 구현 코드 와 코드별 해석 정리
+>논문 리뷰 및 구현 코드 와 코드별 해석 정리.
 
 > keras_to_tf.py는 "이웅원" 씨의 "파이썬과 케라스로 배우는 강화학습" 책의 A3C keras 코드를 tensorflow code로 변경한 것입니다.
 
